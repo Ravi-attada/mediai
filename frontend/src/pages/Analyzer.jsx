@@ -3,6 +3,10 @@ import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useDropzone } from 'react-dropzone'
 
+// In production (Vercel), point to HuggingFace backend.
+// In development (localhost), use Vite proxy.
+const API_BASE = import.meta.env.VITE_BACKEND_URL || ''
+
 /* ── Lab field definitions ─────────────────────────── */
 const LAB_FIELDS = {
   pneumonia: [
@@ -163,7 +167,7 @@ export default function Analyzer() {
         Object.entries(labs).forEach(([k,v]) => { if (v !== '') obj[k] = parseFloat(v) })
         fd.append('blood_data', JSON.stringify(obj))
       }
-      const { data } = await axios.post('/api/analyze', fd, {headers:{'Content-Type':'multipart/form-data'}})
+      const { data } = await axios.post(`${API_BASE}/api/analyze`, fd, {headers:{'Content-Type':'multipart/form-data'}})
       setResults(data)
       toast.success('Analysis complete!')
     } catch(err) {

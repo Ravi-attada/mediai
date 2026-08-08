@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// HuggingFace Spaces URL — update this after deploying the backend
-const HF_BACKEND_URL = 'https://YOUR-USERNAME-mediai-backend.hf.space'
+// HuggingFace Spaces Backend URL for ravi-attada
+const HF_BACKEND_URL = 'https://ravi-attada-mediai-backend.hf.space'
 
 export default defineConfig({
   plugins: [react()],
