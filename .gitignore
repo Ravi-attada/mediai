@@ -21,3 +21,15 @@ Thumbs.db
 # HuggingFace cache (large model weights — don't commit)
 .cache/
 huggingface/
+
+# ── Large X-ray Image Datasets (70+ GB — download from Kaggle) ──
+# CheXpert: https://www.kaggle.com/datasets/ashery/chexpert
+# NIH:      https://www.kaggle.com/datasets/nih-chest-xrays/data
+datasets/CheXpert-v1.0-small/
+datasets/NIH*/
+*.jpg
+*.jpeg
+*.png
+*.dcm
+
+# Small CSV/text datasets ARE tracked (diabetes.csv, mtsamples.csv, abstracts.txt)
